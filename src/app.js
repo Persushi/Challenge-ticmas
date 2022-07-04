@@ -1,10 +1,7 @@
 import express from "express";
 import indexRouter from './routes/index.js';
-import dotenv from "dotenv"
 import bodyParser from "body-parser";
 const app = express();
-
-dotenv.config()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
