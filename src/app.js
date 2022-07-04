@@ -1,11 +1,13 @@
 import express from "express";
 import indexRouter from './routes/index.js';
 import dotenv from "dotenv"
+import bodyParser from "body-parser";
 const app = express();
 
 dotenv.config()
 
-app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use("/v1", indexRouter)
 const server = app.listen(process.env.PORT || 5000, () => {
     const port = server.address().port;
